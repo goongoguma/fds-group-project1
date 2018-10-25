@@ -18,7 +18,6 @@ const ranNoVa = randomNum()
 
 console.log(ranNoVa);
 
-
 form.addEventListener('submit', e => {
   const numberLi = document.createElement('li');
   let inputAll = input1.value + input2.value + input3.value;

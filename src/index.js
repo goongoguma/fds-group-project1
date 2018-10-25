@@ -13,9 +13,11 @@ const randomNum  = () => {
 }
 randomNum()
 
+// 값을 고정시키기 위해 변수 사용
 const ranNoVa = randomNum()
 
 console.log(ranNoVa);
+
 
 form.addEventListener('submit', e => {
   const numberLi = document.createElement('li');
@@ -25,6 +27,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   e.target.reset();
 
+  // 랜덤숫자와 입력숫자 비교
   if(inputAll === ranNoVa) { 
     console.log('hello')
   } else {

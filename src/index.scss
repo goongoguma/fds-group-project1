@@ -1,0 +1,22 @@
+$main-color: skyblue;
+html {
+  font-size: 10px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-size: 1.5rem;
+}
+body {
+  background-color: $main-color;
+  text-align: center;
+}
+
+.input-list li {
+  counter-increment: number;
+}
+.input-list li:before {
+  content: counter(number);
+}

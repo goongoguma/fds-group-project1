@@ -5,6 +5,8 @@ let input2 = document.querySelector(".input2");
 let input3 = document.querySelector(".input3");
 
 let order = 1;
+let count = 0;
+
 
 const randomNum = () => {
   const numberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -32,6 +34,8 @@ randomNum();
 const ranNoVa = randomNum();
 
 console.log(ranNoVa);
+
+
 
 form.addEventListener("submit", e => {
   // 예전 코드
@@ -70,15 +74,18 @@ form.addEventListener("submit", e => {
     ulEl.appendChild(li1);
     ulEl.appendChild(li2);
     ulEl.appendChild(li3);
+    ulEl.appendChild(pEl);
     ulEl.appendChild(emptyEl);
-    ulEl.appendChild(pEl)
-    ulEl.appendChild(inningEl);
+    ulEl.insertBefore(inningEl, li1);
+
+
   };
 
   // 스트라이크, 볼 판별
   const game = inputNum => {
     let strike = 0;
     let ball = 0;
+
     // 사용자 입력 번호 조합
     inputNum =
       numberSpan1.textContent +
@@ -103,20 +110,33 @@ form.addEventListener("submit", e => {
       numAttach();
     };
 
+    // 게임이 끝나는 조건식 및 함수
+    count += inputNum.length;
+    const nothing = () => {
+      alert('게임끝');
+    }
+
     // 최종 결정
     if (inputNum.split("").length < 3) {
       alert("빈칸이 없도록 입력해주세요.");
-    } else if (inputNum[0] == inputNum[1] && inputNum[1] == inputNum[2]) {
+    } else if (inputNum[0] == inputNum[1] || inputNum[1] == inputNum[2]) {
       alert("중복된 숫자가 없도록 입력해주세요.");
-    } else {
+    } else if (count >= 30) {
+      nothing()
+    } else  {
       ballAndStrike();
     }
-
-    console.log(inputNum);
   };
-
   game();
-
   e.preventDefault();
   e.target.reset();
+
+
 });
+
+// 리셋
+ const resetSelect = document.querySelector('.reset');
+
+ resetSelect.addEventListener('click', e => {
+  window.location.reload();
+})

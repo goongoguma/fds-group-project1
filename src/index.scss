@@ -1,12 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700');
 /***************** 기본 셋팅 *****************/
-$bg-color: #3aafa9;
-$text-color: #17252a;
-$point1-color:#2b7a78;
-$white1-color: #feffff;
-$white2-color:#def2f1;
-
 html {
   font-size: 10px;
 }
@@ -15,73 +7,67 @@ html {
   padding: 0;
   border: 0;
   font-size: 1.5rem;
-  // font-family: 'Noto Sans KR', sans-serif;
-  font-family: 'Do Hyeon', sans-serif;
-  box-sizing: content-box;
 }
 
 body {
-  // background-image: url("./img/baseball-stadium.jpg");
-  // background-size: cover;
-  background-color:$bg-color;
+  background: url("./img/baseball-stadium.jpg")
 }
 
+
+.wrapper {
+  width: 1600px;
+  margin: 0 auto;
+  background-image: linear-gradient(to right bottom, rgba(86, 203, 242, 0.842), rgba(47, 129, 237, 0.815));
+  background: cover;
+  border-radius: 30px;
+  text-align: center;
+  padding-bottom: 20px;
+  height: 100vh;
+}
 
 /***************** 대제목 *****************/
-.header{
-  padding-top:30px;
-}
 h1 {
-  font-size: 6.5rem;
+  font-size: 5rem;
+  letter-spacing: 3rem;
+  padding-top: 2rem;
   text-align: center;
-  letter-spacing: 1rem;
-  // font-family: 'Black Han Sans', sans-serif;
-  color: $text-color;
-  line-height: 1;
-
 }
 
 /***************** 게임의 컨텐츠 *****************/
 .contents {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
-legend, label{ // 숨김컨텐츠
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
+legend {
+  display: none;
 }
 
 fieldset {
   text-align:center;
-  // transform: translateX(5%);
+  transform: translateX(5%);
 }
 
 /**** 버튼 ****/
 button {
-  font-size: 2.8rem;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 10px;
   transition: all .1s;
-  background-color: $text-color;
-  color: $white1-color;
-  text-align: center;
-  height:6rem;
-  margin-right: 5px;
-  padding:0 20px;
-  transform: translateY(-2px);
+  background-image: linear-gradient(to right bottom, #4b6cb7, #182848);
+  color: #fff;
+  border: 1px solid transparent;
+  height: 8rem;
+  width: 8rem;
+  margin-right: 20px;
 }
 
 button:focus {
-  // background-image: linear-gradient(to right bottom, #618ae9, #3b5c99);
-  background-color: $point1-color;
+  background-image: linear-gradient(to right bottom, #618ae9, #3b5c99);
 
 }
 
 button:hover {
-  transform: translateY(-7px);
-  background-color: $point1-color;
+  transform: translateY(-5px);
 }
 
 button:click {
@@ -90,39 +76,60 @@ button:click {
 
 /**** 인풋 ****/
 input {
-  font-size: 3rem;
+  font-size: 35px;
   text-align: center;
-  width:6rem;
-  height:6rem;
-  margin-right: 5px
 }
 
 input:focus{
-  background-color: $white2-color;
+  background-color: whitesmoke;
+  font-size: 35px;
 }
 
+.input1, .input2, .input3 {
+  height: 8rem;
+  width: 8rem;
+  margin-right: 40px;
+  border-radius: 10px;
+}
 
 /**** 회차 추가 목록 ****/
-.input-list {
+ul {
   counter-reset: li-count;
   text-align: center;
-  margin-top:40px;
+  background-color: transparent;
+  transform: translateX(-85px);
 }
 
-.input-list span {
+// 회 번호 추가
+.inningDisplay {
+  counter-increment: li-count;
   display: inline-block;
-  background-color: $white1-color;
+  margin-right: 75px;
   font-size: 3.5rem;
-  height: 6rem;
-  width: 6rem;
-  line-height: 6rem;
-  margin-right: 5px;
+}
+
+.inningDisplay:before {
+  content: counter(li-count) '회 ';
+  font-weight: bold;
+}
+
+// 입력한 숫자
+span {
+  margin: 30px 43px 0 0;
+  display: inline-block;
+  font-size: 3.5rem;
+  border: 2px solid transparent;
+  background-color: #fff;
+  height: 8rem;
+  width: 8rem;
+  line-height: 8rem;
+  letter-spacing: 10px;
+  border-radius: 10px;
 }
 
 // 회차들이 수평으로 정렬되기 위한 빈칸
 .empty {
   display: block;
-  margin-top:20px
 }
 
 // 점수판

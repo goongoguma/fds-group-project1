@@ -64,15 +64,15 @@ form.addEventListener("submit", e => {
     const li3 = liEl.appendChild(numberSpan3);
     const emptyEl = liEl.appendChild(EmptyDiv);
     const inningEl = liEl.insertBefore(inning, numberSpan1);
-    const pEl = liEl.appendChild(scoreP);
+    const pEl = liEl.insertBefore(scoreP,emptyEl);
 
     // 위의 li를 ul에 붙이기
     ulEl.appendChild(li1);
     ulEl.appendChild(li2);
     ulEl.appendChild(li3);
     ulEl.appendChild(emptyEl);
-    ulEl.insertBefore(inningEl, li1);
-    ulEl.appendChild(pEl);
+    ulEl.appendChild(pEl)
+    ulEl.appendChild(inningEl);
   };
 
   // 스트라이크, 볼 판별

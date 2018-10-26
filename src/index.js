@@ -55,24 +55,24 @@ form.addEventListener("submit", e => {
   numberSpan2.textContent = input2.value;
   numberSpan3.textContent = input3.value;
 
-  // li에 붙이기
-  const attach = () => {
-  const li1 = liEl.appendChild(numberSpan1);
-  const li2 = liEl.appendChild(numberSpan2);
-  const li3 = liEl.appendChild(numberSpan3);
-  const emptyEl = liEl.appendChild(EmptyDiv);
-  const inningEl = liEl.insertBefore(inning, numberSpan1);
+  const numAttach = () => {
+    // li에 붙이기
+    const li1 = liEl.appendChild(numberSpan1);
+    const li2 = liEl.appendChild(numberSpan2);
+    const li3 = liEl.appendChild(numberSpan3);
+    const emptyEl = liEl.appendChild(EmptyDiv);
+    const inningEl = liEl.insertBefore(inning, numberSpan1);
 
-  // 위의 li를 ul에 붙이기
-  ulEl.appendChild(li1);
-  ulEl.appendChild(li2);
-  ulEl.appendChild(li3);
-  ulEl.appendChild(emptyEl);
-  ulEl.insertBefore(inningEl, li1);
-  }
+    // 위의 li를 ul에 붙이기
+    ulEl.appendChild(li1);
+    ulEl.appendChild(li2);
+    ulEl.appendChild(li3);
+    ulEl.appendChild(emptyEl);
+    ulEl.insertBefore(inningEl, li1);
+  };
 
   // 스트라이크, 볼 판별
-  function game(inputNum) {
+  const game = (inputNum) => {
     let strike = 0;
     let ball = 0;
     // 사용자 입력 번호 조합
@@ -81,21 +81,23 @@ form.addEventListener("submit", e => {
       numberSpan2.textContent +
       numberSpan3.textContent;
 
-    if(inputNum.split("").length < 3) {
-      alert("빈칸이 없도록 입력해주세요.")
+    if (inputNum.split("").length < 3) {
+      alert("빈칸이 없도록 입력해주세요.");
     } else if (inputNum[0] == inputNum[1] && inputNum[1] == inputNum[2]) {
       alert("중복된 숫자가 없도록 입력해주세요.");
     }
 
-    // 볼 판별 -
+
+    // 볼 & 스트라이크판별
     for (let i = 0; i < ranNoVa.length; i++) {
       if (ranNoVa[i] === inputNum[i]) {
         strike++;
+        numAttach();
       } else if (ranNoVa.includes(inputNum[i])) {
         ball++;
+        numAttach();
       }
     }
-
     console.log(`${ball}B, ${strike}S`);
 
     if (strike === 3) {
@@ -103,8 +105,12 @@ form.addEventListener("submit", e => {
     } else if (strike === 0 && ball === 0) {
       console.log("OUT");
     }
+
   }
+
+  game();
   e.preventDefault();
   e.target.reset();
+
 
 });

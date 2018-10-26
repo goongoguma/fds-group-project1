@@ -100,6 +100,20 @@ ul {
   transform: translateX(-85px);
 }
 
+// 회 번호 추가
+.inningDisplay {
+  counter-increment: li-count;
+  display: inline-block;
+  margin-right: 75px;
+  font-size: 3.5rem;
+}
+
+.inningDisplay:before {
+  content: counter(li-count) '회 ';
+  font-weight: bold;
+}
+
+// 입력한 숫자
 span {
   margin: 30px 43px 0 0;
   display: inline-block;
@@ -118,16 +132,18 @@ span {
   display: block;
 }
 
-.inningDisplay {
-  counter-increment: li-count;
-  display: inline-block;
-  margin-right: 75px;
-  font-size: 3.5rem;
+// 점수판
+p {
+  display: none;
 }
-
-.inningDisplay:before {
-  content: counter(li-count) '회 ';
-  font-weight: bold;
+p.ballAndStrike {
+  display: block;
+}
+p.rightAns {
+  display: block;
+}
+p.out {
+  display: block;
 }
 
 

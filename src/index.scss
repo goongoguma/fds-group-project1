@@ -1,4 +1,4 @@
-$main-color: skyblue;
+/***************** 기본 셋팅 *****************/
 html {
   font-size: 10px;
 }
@@ -6,17 +6,129 @@ html {
   margin: 0;
   padding: 0;
   border: 0;
-  list-style: none;
   font-size: 1.5rem;
 }
+
 body {
-  background-color: $main-color;
+  background: url("./img/baseball-stadium.jpg")
+}
+
+
+.wrapper {
+  width: 1600px;
+  margin: 0 auto;
+  background-image: linear-gradient(to right bottom, rgba(86, 203, 242, 0.842), rgba(47, 129, 237, 0.815));
+  background: cover;
+  border-radius: 30px;
+  text-align: center;
+  padding-bottom: 20px;
+  height: 100vh;
+}
+
+/***************** 대제목 *****************/
+h1 {
+  font-size: 5rem;
+  letter-spacing: 3rem;
+  padding-top: 2rem;
   text-align: center;
 }
 
-.input-list li {
-  counter-increment: number;
+/***************** 게임의 컨텐츠 *****************/
+.contents {
+  margin-top: 5rem;
 }
-.input-list li:before {
-  content: counter(number);
+
+legend {
+  display: none;
 }
+
+fieldset {
+  text-align:center;
+  transform: translateX(5%);
+}
+
+/**** 버튼 ****/
+button {
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all .1s;
+  background-image: linear-gradient(to right bottom, #4b6cb7, #182848);
+  color: #fff;
+  border: 1px solid transparent;
+  height: 8rem;
+  width: 8rem;
+  margin-right: 20px;
+}
+
+button:focus {
+  background-image: linear-gradient(to right bottom, #618ae9, #3b5c99);
+
+}
+
+button:hover {
+  transform: translateY(-5px);
+}
+
+button:click {
+  transform: translateY(-2px);
+}
+
+/**** 인풋 ****/
+input {
+  font-size: 35px;
+  text-align: center;
+}
+
+input:focus{
+  background-color: whitesmoke;
+  font-size: 35px;
+}
+
+.input1, .input2, .input3 {
+  height: 8rem;
+  width: 8rem;
+  margin-right: 40px;
+  border-radius: 10px;
+}
+
+/**** 회차 추가 목록 ****/
+ul {
+  counter-reset: li-count;
+  text-align: center;
+  background-color: transparent;
+  transform: translateX(-85px);
+}
+
+span {
+  margin: 30px 43px 0 0;
+  display: inline-block;
+  font-size: 3.5rem;
+  border: 2px solid transparent;
+  background-color: #fff;
+  height: 8rem;
+  width: 8rem;
+  line-height: 8rem;
+  letter-spacing: 10px;
+  border-radius: 10px;
+}
+
+// 회차들이 수평으로 정렬되기 위한 빈칸
+.empty {
+  display: block;
+}
+
+.inningDisplay {
+  counter-increment: li-count;
+  display: inline-block;
+  margin-right: 75px;
+  font-size: 3.5rem;
+}
+
+.inningDisplay:before {
+  content: counter(li-count) '회 ';
+  font-weight: bold;
+}
+
+
+

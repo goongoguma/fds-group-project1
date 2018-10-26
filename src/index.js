@@ -1,7 +1,10 @@
 const form = document.querySelector('.number-list');
+const ulEl = document.querySelector('.input-list');
 let input1 = document.querySelector('.input1');
 let input2 = document.querySelector('.input2');
 let input3 = document.querySelector('.input3');
+
+let order = 1;
 
 const randomNum  = () => {
   const numberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -18,21 +21,62 @@ const ranNoVa = randomNum()
 
 console.log(ranNoVa);
 
-
 form.addEventListener('submit', e => {
-  const numberLi = document.createElement('li');
-  let inputAll = input1.value + input2.value + input3.value;
-  numberLi.textContent = inputAll;
-  form.appendChild(numberLi);
+  // 예전 코드
+  // const numberLi = document.createElement('li')
+  // numberLi.classList.add('order')
+  // let inputAll = input1.value + input2.value + input3.value;
+  // numberLi.textContent = inputAll;
+  // form.appendChild(numberLi);
+
+  const liEl = document.createElement('li');
+  const inning = document.createElement('div');
+  const numberSpan1 = document.createElement('span');
+  const numberSpan2 = document.createElement('span');
+  const numberSpan3 = document.createElement('span');
+  const EmptyDiv = document.createElement('div');
+
+
+  // 클래스 및 텍스트 지정
+  inning.classList.add('inningDisplay');
+  EmptyDiv.classList.add('empty');
+  numberSpan1.textContent = input1.value;
+  numberSpan2.textContent = input2.value;
+  numberSpan3.textContent = input3.value;
+
+  // li에 붙이기
+  const li1 = liEl.appendChild(numberSpan1);
+  const li2 = liEl.appendChild(numberSpan2);
+  const li3 = liEl.appendChild(numberSpan3);
+  const emptyEl = liEl.appendChild(EmptyDiv);
+  const inningEl = liEl.insertBefore(inning,numberSpan1);
+
+  // 위의 li를 ul에 붙이기
+  ulEl.appendChild(li1);
+  ulEl.appendChild(li2);
+  ulEl.appendChild(li3);
+  ulEl.appendChild(emptyEl);
+  ulEl.insertBefore(inningEl, li1);
+
+  // 이렇게 하면 문자열 숫자조합이 나온다.
+  // console.log(numberSpan1.textContent + numberSpan2.textContent + numberSpan3.textContent);
+
   e.preventDefault();
   e.target.reset();
 
-  // 랜덤숫자와 입력숫자 비교
-  if(inputAll === ranNoVa) { 
-    console.log('hello')
-  } else {
-    console.log('bye')
-  }
+
+  // // 랜덤숫자와 입력숫자 비교
+  // if(inputAll === ranNoVa) {
+  //   console.log('hello')
+  // } else {
+  //   console.log('bye')
+  // }
+
+  // if(input1.length === 0) {
+  //   console.log('hello')
+  // }
+
+
 })
 
 

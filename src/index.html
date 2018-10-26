@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,45 +8,26 @@
   <link rel="stylesheet" href="./index.scss">
 </head>
 <body>
-  <h1>야구게임</h1>
-  <div class="contents">
-    <form action="" method="post" class="number-list">
-      <fieldset>
-        <legend>숫자야구 게임 사용자 입력</legend>
-        <label for="first-number"></label>
-        <input type="text" name="" id="first-number" class="input1">
-        <label for="second-number"></label>
-        <input type="text" name="" id="second-number" class="input2">
-        <label for="third-number"></label>
-        <input type="text" name="" id="third-number" class="input3">
-        <button type="submit" class="add">도전</button>
-        <button type="reset">새 게임</button>
-      </fieldset>
-    </form>
-    <ul class="input-list">
-      <li>
-        회
-        <span class="user-input first">1</span>
-        <span class="user-input second">1</span>
-        <span class="user-input third">1</span>
-        <span>1S 1B</span>
-      </li>
-      <li>
-        회
-        <span class="user-input first">1</span>
-        <span class="user-input second">1</span>
-        <span class="user-input third">1</span>
-        <span>1S 1B</span>
-      </li>
-      <li>
-        회
-        <span class="user-input first">1</span>
-        <span class="user-input second">1</span>
-        <span class="user-input third">1</span>
-        <span>1S 1B</span>
-      </li>
-    </ul>
+  <div class="wrapper">
+    <h1>야구게임</h1>
+    <div class="contents">
+      <form action="" method="post" class="number-list">
+        <fieldset>
+          <legend>숫자야구 게임 사용자 입력</legend>
+          <label for="first-number"></label>
+          <input type="text" min='0' max='9' name="" id="first-number" class="input1" maxlength="1" autofocus='true'>
+          <label for="second-number"></label>
+          <input type="text" min='0' max='9' name="" id="second-number" class="input2" maxlength="1">
+          <label for="third-number"></label>
+          <input type="text" min='0' max='9' name="" id="third-number" class="input3" maxlength="1">
+          <button type="submit" class="add">도전</button>
+          <button type="reset">새 게임</button>
+        </fieldset>
+      </form>
+      <ul class="input-list"></ul>
+    </div>
   </div>
 </body>
-  <script src="./index.js"></script>
+<script src="./index.js"></script>
+
 </html>

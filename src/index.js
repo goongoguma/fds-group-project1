@@ -3,8 +3,9 @@ const ulEl = document.querySelector(".input-list");
 let input1 = document.querySelector(".input1");
 let input2 = document.querySelector(".input2");
 let input3 = document.querySelector(".input3");
-
 let order = 1;
+let count = 0;
+
 
 const randomNum = () => {
   const numberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -32,6 +33,8 @@ randomNum();
 const ranNoVa = randomNum();
 
 console.log(ranNoVa);
+
+
 
 form.addEventListener("submit", e => {
   // 예전 코드
@@ -64,7 +67,7 @@ form.addEventListener("submit", e => {
     const li3 = liEl.appendChild(numberSpan3);
     const emptyEl = liEl.appendChild(EmptyDiv);
     const inningEl = liEl.insertBefore(inning, numberSpan1);
-    const pEl = liEl.appendChild(scoreP);
+    const pEl = liEl.insertBefore(scoreP, emptyEl);
 
     // 위의 li를 ul에 붙이기
     ulEl.appendChild(li1);
@@ -73,12 +76,15 @@ form.addEventListener("submit", e => {
     ulEl.appendChild(pEl);
     ulEl.appendChild(emptyEl);
     ulEl.insertBefore(inningEl, li1);
+
+
   };
 
   // 스트라이크, 볼 판별
   const game = inputNum => {
     let strike = 0;
     let ball = 0;
+
     // 사용자 입력 번호 조합
     inputNum =
       numberSpan1.textContent +
@@ -96,27 +102,47 @@ form.addEventListener("submit", e => {
       scoreP.textContent = `${ball}B, ${strike}S`;
 
       if (strike === 3) {
-        scoreP.textContent = '정답입니다!'
+        scoreP.textContent = `${inputNum} 정답`
       } else if (strike === 0 && ball === 0) {
         scoreP.textContent = 'OUT';
       }
       numAttach();
     };
 
+    // 게임이 끝나는 조건식 및 함수
+    count += inputNum.length;
+    const nothing = () => {
+      alert('게임끝');
+    }
+
     // 최종 결정
     if (inputNum.split("").length < 3) {
       alert("빈칸이 없도록 입력해주세요.");
-    } else if (inputNum[0] == inputNum[1] && inputNum[1] == inputNum[2]) {
+    } else if (inputNum[0] == inputNum[1] || inputNum[1] == inputNum[2]) {
       alert("중복된 숫자가 없도록 입력해주세요.");
+    } else if (count >= 30) {
+      nothing()
     } else {
       ballAndStrike();
     }
-
-    console.log(inputNum);
   };
-
   game();
-
   e.preventDefault();
   e.target.reset();
 });
+
+// 리셋
+const resetSelect = document.querySelector('.reset');
+
+resetSelect.addEventListener('click', e => {
+  window.location.reload();
+})
+
+
+// 도움말
+document.querySelector('.btn-help').addEventListener('mouseover', e =>{
+  document.querySelector('.help-paragraph').classList.add('on');
+})
+document.querySelector('.btn-help').addEventListener('mouseout', e => {
+  document.querySelector('.help-paragraph').classList.remove('on');
+})

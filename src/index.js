@@ -121,6 +121,15 @@ form.addEventListener("submit", e => {
     }
   };
   game();
+<<<<<<< HEAD
+=======
+
+form.addEventListener('submit', e => {
+  const numberLi = document.createElement('li');
+  let inputAll = input1.value + input2.value + input3.value;
+  numberLi.textContent = inputAll;
+  form.appendChild(numberLi);
+>>>>>>> 4a936da3a79d376408980af12ccdf929ea04b5f1
   e.preventDefault();
   e.target.reset();
 });

@@ -19,7 +19,6 @@ html {
  font-size: 10px;
 }
 * {
-<<<<<<< HEAD
  margin: 0;
  padding: 0;
  border: 0;
@@ -28,16 +27,6 @@ html {
  font-family: 'Do Hyeon', sans-serif;
  box-sizing: content-box;
  color:$text-color;
-=======
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 1.5rem;
-  // font-family: 'Noto Sans KR', sans-serif;
-  font-family: 'Do Hyeon', sans-serif;
-  box-sizing: content-box;
-  color:$text-color;
->>>>>>> ba6ac6caee750ec48bb2c5aad591f7ef80a1d86e
 }
 
 body {
@@ -84,7 +73,6 @@ fieldset {
 button{cursor: pointer;}
 
 .add, .reset{
-<<<<<<< HEAD
  font-size: 2.8rem;
  transition: all .1s;
  background-color: $point2-color;
@@ -102,30 +90,12 @@ button{cursor: pointer;}
  background-color: $point1-color;
 
 }
-=======
-  font-size: 2.8rem;
-  transition: all .1s;
-  background-color: $point2-color;
-  color: $white1-color;
-  text-align: center;
-  height:6rem;
-  margin-right: 5px;
-  padding:0 20px;
-  transform: translateY(-2px);
-  border-radius: 2px;
-}
-
-.add:focus, .reset:focus {
-  // background-image: linear-gradient(to right bottom, #618ae9, #3b5c99);
-  background-color: $point1-color;
->>>>>>> ba6ac6caee750ec48bb2c5aad591f7ef80a1d86e
 
 .add:hover, .reset:hover {
  transform: translateY(-7px);
  background-color: $point1-color;
 }
 
-<<<<<<< HEAD
 .add:click, .reset:click {
  transform: translateY(-2px);
 }
@@ -153,15 +123,6 @@ button{cursor: pointer;}
 }
 .help-paragraph.on{
  display:block;
-=======
-.add:hover, .reset:hover {
-  transform: translateY(-7px);
-  background-color: $point1-color;
-}
-
-.add:click, .reset:click {
-  transform: translateY(-2px);
->>>>>>> ba6ac6caee750ec48bb2c5aad591f7ef80a1d86e
 }
 .btn-help{
   position: fixed;
@@ -191,7 +152,6 @@ button{cursor: pointer;}
 
 /**** 인풋 ****/
 input {
-<<<<<<< HEAD
  font-size: 3rem;
  text-align: center;
  width:6rem;
@@ -200,16 +160,6 @@ input {
  color:$text-color;
  border:1px solid $border-color;
  border-radius: 2px;
-=======
-  font-size: 3rem;
-  text-align: center;
-  width:6rem;
-  height:6rem;
-  margin-right: 5px;
-  color:$text-color;
-  border:1px solid $border-color;
-  border-radius: 2px;
->>>>>>> ba6ac6caee750ec48bb2c5aad591f7ef80a1d86e
 }
 
 input:focus{
@@ -225,7 +175,6 @@ input:focus{
 }
 
 .input-list span {
-<<<<<<< HEAD
  display: inline-block;
  background-color: $white1-color;
  border:1px solid $border-color;
@@ -235,17 +184,6 @@ input:focus{
  line-height: 6rem;
  margin-right: 5px;
  border-radius: 2px;
-=======
-  display: inline-block;
-  background-color: $white1-color;
-  border:1px solid $border-color;
-  font-size: 3rem;
-  height: 6rem;
-  width: 6rem;
-  line-height: 6rem;
-  margin-right: 5px;
-  border-radius: 2px;
->>>>>>> ba6ac6caee750ec48bb2c5aad591f7ef80a1d86e
 }
 
 // 회차들이 수평으로 정렬되기 위한 빈칸
@@ -267,19 +205,8 @@ input:focus{
 
 // 점수판
 p{
-<<<<<<< HEAD
  display:inline-block;
  font-size:3rem;
  width:200px;
  text-align: right;
 }
-=======
-  display:inline-block;
-  font-size:3rem;
-  width:200px;
-  text-align: right;
-}
-
-
-
->>>>>>> ba6ac6caee750ec48bb2c5aad591f7ef80a1d86e

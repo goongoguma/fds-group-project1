@@ -36,7 +36,6 @@ function randomNum(){
 const ranNoVa = randomNum();
 console.log(ranNoVa);
 
-<<<<<<< HEAD
 
 form.addEventListener("submit", e => {
   // 예전 코드
@@ -122,13 +121,6 @@ form.addEventListener("submit", e => {
     }
   };
   game();
-=======
-form.addEventListener('submit', e => {
-  const numberLi = document.createElement('li');
-  let inputAll = input1.value + input2.value + input3.value;
-  numberLi.textContent = inputAll;
-  form.appendChild(numberLi);
->>>>>>> 9f8d1162c584be5bd0cf33d56ee9fa33f3fe7cc7
   e.preventDefault();
   e.target.reset();
 });

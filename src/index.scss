@@ -124,6 +124,17 @@ input:focus{
   display: block;
   margin-top:20px
 }
+.inningDisplay {
+  counter-increment: li-count;
+  display: inline-block;
+  margin-right: 5rem;
+  font-size: 3rem;
+}
+
+.inningDisplay:before {
+  content: counter(li-count) '회 ';
+  font-weight: bold;
+}
 
 // 점수판
 p {

@@ -70,9 +70,9 @@ form.addEventListener("submit", e => {
     ulEl.appendChild(li1);
     ulEl.appendChild(li2);
     ulEl.appendChild(li3);
+    ulEl.appendChild(pEl);
     ulEl.appendChild(emptyEl);
     ulEl.insertBefore(inningEl, li1);
-    ulEl.appendChild(pEl);
   };
 
   // 스트라이크, 볼 판별

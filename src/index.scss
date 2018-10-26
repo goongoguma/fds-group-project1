@@ -18,6 +18,7 @@ html {
   // font-family: 'Noto Sans KR', sans-serif;
   font-family: 'Do Hyeon', sans-serif;
   box-sizing: content-box;
+  color:$text-color;
 }
 
 body {
@@ -111,7 +112,7 @@ input:focus{
 
 .input-list span {
   display: inline-block;
-  background-color: $white1-color;
+  background-color: $white2-color;
   font-size: 3.5rem;
   height: 6rem;
   width: 6rem;
@@ -137,17 +138,11 @@ input:focus{
 }
 
 // 점수판
-p {
-  display: none;
-}
-p.ballAndStrike {
-  display: block;
-}
-p.rightAns {
-  display: block;
-}
-p.out {
-  display: block;
+p{
+  display:inline-block;
+  font-size:3rem;
+  width:200px;
+  text-align: right;
 }
 
 

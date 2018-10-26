@@ -96,7 +96,7 @@ form.addEventListener("submit", e => {
       scoreP.textContent = `${ball}B, ${strike}S`;
 
       if (strike === 3) {
-        scoreP.textContent = `${inputNum} 정답`
+        scoreP.textContent = '정답입니다!'
       } else if (strike === 0 && ball === 0) {
         scoreP.textContent = 'OUT';
       }

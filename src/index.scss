@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700');
 /***************** 기본 셋팅 *****************/
-$bg-color: #3aafa9;
-$text-color: #17252a;
-$point1-color:#2b7a78;
+// $bg-color: #3aafa9;
+// $text-color: #17252a;
+// $point1-color:#2b7a78;
+// $white1-color: #feffff;
+// $white2-color:#def2f1;
+
+$bg-color: #f8f8f8;
+$text-color: #2B2D2E;
+$point1-color:#595BD4;
+$point2-color:#3CABDB;
+$border-color:#ebebeb;
 $white1-color: #feffff;
-$white2-color:#def2f1;
+$white2-color:#f0f7fa;
 
 html {
   font-size: 10px;
@@ -65,7 +73,7 @@ fieldset {
 button {
   font-size: 2.8rem;
   transition: all .1s;
-  background-color: $text-color;
+  background-color: $point2-color;
   color: $white1-color;
   text-align: center;
   height:6rem;
@@ -95,7 +103,9 @@ input {
   text-align: center;
   width:6rem;
   height:6rem;
-  margin-right: 5px
+  margin-right: 5px;
+  color:$text-color;
+  border:1px solid $border-color;
 }
 
 input:focus{
@@ -112,8 +122,9 @@ input:focus{
 
 .input-list span {
   display: inline-block;
-  background-color: $white2-color;
-  font-size: 3.5rem;
+  background-color: $white1-color;
+  border:1px solid $border-color;
+  font-size: 3rem;
   height: 6rem;
   width: 6rem;
   line-height: 6rem;

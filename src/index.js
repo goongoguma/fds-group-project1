@@ -39,9 +39,6 @@ const ranNoVa = randomNum();
 console.log(ranNoVa);
 
 
-
-
-
 form.addEventListener("submit", e => {
   // 예전 코드
   // const numberLi = document.createElement('li')
@@ -82,6 +79,8 @@ form.addEventListener("submit", e => {
     ulEl.appendChild(pEl);
     ulEl.appendChild(emptyEl);
     ulEl.insertBefore(inningEl, li1);
+
+
   };
 
   // 스트라이크, 볼 판별

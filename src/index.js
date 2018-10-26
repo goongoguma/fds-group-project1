@@ -56,6 +56,7 @@ form.addEventListener("submit", e => {
   numberSpan3.textContent = input3.value;
 
   // li에 붙이기
+  const attach = () => {
   const li1 = liEl.appendChild(numberSpan1);
   const li2 = liEl.appendChild(numberSpan2);
   const li3 = liEl.appendChild(numberSpan3);
@@ -68,6 +69,7 @@ form.addEventListener("submit", e => {
   ulEl.appendChild(li3);
   ulEl.appendChild(emptyEl);
   ulEl.insertBefore(inningEl, li1);
+  }
 
   // 스트라이크, 볼 판별
   function game(inputNum) {
@@ -104,5 +106,5 @@ form.addEventListener("submit", e => {
   }
   e.preventDefault();
   e.target.reset();
-  game();
+
 });

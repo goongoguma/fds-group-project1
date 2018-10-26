@@ -3,37 +3,42 @@ const ulEl = document.querySelector(".input-list");
 let input1 = document.querySelector(".input1");
 let input2 = document.querySelector(".input2");
 let input3 = document.querySelector(".input3");
-
 let order = 1;
 let count = 0;
 
+// 재시작 할 경우 중복되는 숫자가 나옴
+// const randomNum = () => {
+//   const numberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+//   // 랜덤으로 세자리 숫자 뽑기
+//   const one = numberArr.splice(
+//     Math.floor(Math.random() * numberArr.length), 1, 0);
+//   const two = numberArr.splice(
+//     Math.floor(Math.random() * numberArr.length), 1, 0);
+//   const three = numberArr.splice(
+//     Math.floor(Math.random() * numberArr.length), 1, 0);
+//   return one + two + three;
+// };
+// randomNum();
 
-const randomNum = () => {
-  const numberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  // 랜덤으로 세자리 숫자 뽑기
-  const one = numberArr.splice(
-    Math.floor(Math.random() * numberArr.length),
-    1,
-    0
-  );
-  const two = numberArr.splice(
-    Math.floor(Math.random() * numberArr.length),
-    1,
-    0
-  );
-  const three = numberArr.splice(
-    Math.floor(Math.random() * numberArr.length),
-    1,
-    0
-  );
-  return one + two + three;
-};
-randomNum();
+function randomNum(){
+  const arr = [];
+  // 랜덤한 수를 뽑고
+  // [0]~[2]까지 보고 뽑은 랜덤수가 없으면 푸쉬
+  while(!(arr.length === 3)){
+    let ranNum = Math.floor(Math.random()*9);
+    if( !(arr.includes(ranNum)) ){
+      arr.push(ranNum)
+    }
+  }
+  return arr.join('');
+ }
 
 // 값을 고정시키기 위해 변수 사용
 const ranNoVa = randomNum();
 
 console.log(ranNoVa);
+
+
 
 
 
@@ -77,8 +82,6 @@ form.addEventListener("submit", e => {
     ulEl.appendChild(pEl);
     ulEl.appendChild(emptyEl);
     ulEl.insertBefore(inningEl, li1);
-
-
   };
 
   // 스트라이크, 볼 판별
@@ -103,7 +106,9 @@ form.addEventListener("submit", e => {
       scoreP.textContent = `${ball}B, ${strike}S`;
 
       if (strike === 3) {
-        scoreP.textContent = `${inputNum} 정답`
+        scoreP.textContent = `정답입니다.`
+        count === 30;
+        nothing();
       } else if (strike === 0 && ball === 0) {
         scoreP.textContent = 'OUT';
       }
@@ -114,12 +119,13 @@ form.addEventListener("submit", e => {
     count += inputNum.length;
     const nothing = () => {
       alert('게임끝');
+      window.location.reload();
     }
 
     // 최종 결정
     if (inputNum.split("").length < 3) {
       alert("빈칸이 없도록 입력해주세요.");
-    } else if (inputNum[0] == inputNum[1] || inputNum[1] == inputNum[2]) {
+    } else if (inputNum[0] === inputNum[1] || inputNum[1] === inputNum[2] || inputNum[0] === inputNum[2]) {
       alert("중복된 숫자가 없도록 입력해주세요.");
     } else if (count >= 30) {
       nothing()
@@ -130,8 +136,6 @@ form.addEventListener("submit", e => {
   game();
   e.preventDefault();
   e.target.reset();
-
-
 });
 
 // 리셋
@@ -140,3 +144,11 @@ form.addEventListener("submit", e => {
  resetSelect.addEventListener('click', e => {
   window.location.reload();
 })
+
+// 도움말
+document.querySelector('.btn-help').addEventListener('mouseover', e =>{
+  document.querySelector('.help-paragraph').classList.add('on');
+ })
+ document.querySelector('.btn-help').addEventListener('mouseout', e => {
+  document.querySelector('.help-paragraph').classList.remove('on');
+ })
